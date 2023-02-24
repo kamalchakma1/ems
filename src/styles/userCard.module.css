@@ -1,0 +1,96 @@
+.card{
+    background-color: #fff;
+    box-shadow: 0 4px 4px gray;
+    border-radius: 4px;
+    cursor: pointer;
+    color: #000;
+    height: 230px;
+    width: 210px;
+    margin-top: 80px;
+    margin-left: 30px;
+}
+.card:hover{
+    transform: translateY(-15px);
+    transition: transform 0.2s;
+}
+.card__user{
+    /* background-color: aqua; */
+    border-radius: 50%;
+    height: 80px;
+    position: relative;
+    top: -40px;
+    left: 65px;
+    width: 80px;
+}
+.card__user>img{
+    width: 80px;
+}
+.card__userInfo{
+    /* position: relative; */
+    /* background-color: #3AF929; */
+    height: 120px;
+    margin-left: 15px;
+    margin-top: 20px;
+}
+.card__userInfo>p{
+    /* font-size: 17px; */
+    padding-top: 7px;
+}
+.card>h3{
+    margin-top: -30px;
+    margin-left: 50px;
+}
+.card__userInfo:hover > .card__userInfoOnHover{
+   display: flex;
+}
+.card__userInfoOnHover{
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    justify-content: space-evenly;
+    background-color: rgba(220, 220, 220, 0.959);
+    height: 141px;
+    position: relative;
+    top: -90px;
+    left: -8px;
+    width: inherit;
+}
+
+.card__userInfoOnHover>button{
+    display: flex;
+    border-radius: 2px;
+    cursor: pointer;
+    align-items: center;
+    justify-content: center;
+    border: none;
+    height: 30px;
+    width: 140px;
+}
+.card__userInfoOnHover>button>a{
+    color: #fff;
+    font-size: 16px;
+    text-decoration: none;
+}
+
+.card__editBtn{
+    background-color: #3AF929;
+}
+.card__editBtn:hover{
+    background-color: #40da32;
+
+}
+.card__attendanceBtn{
+    background-color: #1DB5F6;
+}
+.card__attendanceBtn:hover{
+    background-color: #309fcf;
+
+}
+.card__deleteBtn{
+    background-color: red;
+}
+.card__deleteBtn:hover{
+    background-color: rgb(223, 44, 44);
+
+}

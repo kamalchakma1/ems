@@ -1,0 +1,91 @@
+
+
+.login{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    justify-content: space-evenly;
+    height: 90vh;
+    
+}
+.login__Form{
+    background-color: #fff;
+    color: #000;
+    border-radius: 3px;
+    box-shadow: 0 4px 6px 0px #575656;
+    height: 380px;
+    margin-left: 200px;
+    margin-top: 20px;
+    width: 300px;
+}
+.login__Form>h3{
+    font-size: 22px;
+    font-weight: bold;
+    color:#F018DB;
+    margin-left: 25px;
+    margin-top: 20px;
+}
+.login__Form>form>p{
+    font-size: 14px;
+    margin-top: 20px;
+    margin-left: 60px;
+}
+
+.login__Form>form>p>.createAccountTitle>a{
+    text-decoration: none;
+}
+.login__Form>form{
+    display: flex;
+    /* align-items: center; */
+    /* justify-content: center; */
+    flex-direction: column;
+    /* justify-content: space-evenly; */
+    height: 300px;
+    margin-top: 50px;
+}
+.login__Form>form>input{
+    border: none;
+    box-shadow: 0px 0px 3px 0px #575656;
+    border-radius: 2px;
+    height: 35px;
+    margin-bottom: 50px;
+    margin-left: 25px;
+    width: 250px;
+}
+.login__Form>form>input[type="password"]{
+    -webkit-text-security: star;
+
+}
+.login__Form>form>input:focus{
+    outline: none;
+}
+.signInBtn{
+    border: none;
+    background-color: #F018DB;
+    border-radius: 2px;
+    color: #fff;
+    cursor: pointer;
+    font-size: 16px;
+    text-align: center;
+    height: 35px;
+    width: 110px;
+    margin-left: 100px;
+    margin-top: -15px;
+}
+.signInBtn>a{
+    color: #fff;
+    text-decoration: none;
+}
+.signInBtn:hover{
+    background-color: #cc14ba;
+}
+.login__Image{
+    /* background-color: green; */
+    height: 400px;
+    width: 300px;
+}
+.login__Image>img{
+    height: 400px;
+    /* width: 400px; */
+    margin-left: -150px;
+}
