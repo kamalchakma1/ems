@@ -1,0 +1,33 @@
+
+
+.yearlyChartMain{
+    /* background-color: green !important; */
+    background-color: rgb(255, 255, 255) !important;
+    border-radius: 2px;
+    cursor: pointer;
+    height: 80vh;
+    margin-top: 70px;
+    margin-left: 200px;
+    width: 70vw;
+}
+
+.yearlyChartMain__btn{
+    background-color: #42a5f5;
+    border: none;
+    border-radius: 2px;
+    cursor: pointer;
+    color: #fff !important;
+    font-size: 18px;
+    position: absolute;
+    top: 20px;
+    height: 35px;
+    width: 100px;
+}
+.yearlyChartMain__btn>a{
+    text-decoration: none;
+    color: #fff !important;
+}
+.yearlyChartMain__btn:hover{
+    transform: translateX(-5px);
+    transition: transform 0.2s;
+}

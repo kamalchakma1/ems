@@ -21,7 +21,7 @@
 .login__Form>h3{
     font-size: 22px;
     font-weight: bold;
-    color:#F018DB;
+    color:#F018DB !important;
     margin-left: 25px;
     margin-top: 20px;
 }
@@ -63,9 +63,9 @@
     border: none;
     background-color: #F018DB;
     border-radius: 2px;
-    color: #fff;
+    /* color: #fff !important; */
     cursor: pointer;
-    font-size: 16px;
+    font-size: 16px !important;
     text-align: center;
     height: 35px;
     width: 110px;
@@ -73,7 +73,7 @@
     margin-top: -15px;
 }
 .signInBtn>a{
-    color: #fff;
+    color: #fff !important;
     text-decoration: none;
 }
 .signInBtn:hover{
@@ -88,4 +88,20 @@
     height: 400px;
     /* width: 400px; */
     margin-left: -150px;
+}
+.fancyBox{
+    border: none;
+    /* background-color: aqua; */
+     /* background-image: linear-gradient(to right, #cc14ba , yellow); */
+     background-image: linear-gradient(to right, #cc14ba00, rgb(0, 255, 225));
+    border-radius: 100% 32% 72% 56% / 46% 45% 75% 69%    ;
+    height:  250px;
+    position: absolute;
+    top: 55px;
+    right: 230px;
+    width: 250px;
+    z-index: -1;
+  
+    
+
 }

@@ -1,0 +1,136 @@
+
+.main{
+    
+    background-color: whitesmoke;
+    height: 900px;
+}
+.attendance__topSection{
+    /* background-color: green; */
+    display: flex;
+    height: 350px;
+    /* position: relative;
+    top: 30px; */
+    width: 100%;
+}
+.seeYearlyBtn{
+   background-color: #42a5f5;
+    border: none;
+    border-radius: 2px;
+    cursor: pointer;
+    font-size: 18px;
+    position: absolute;
+    top: 30px;
+    right: 30px;
+    height: 35px;
+    width: 180px; 
+}
+.seeYearlyBtn>a{
+    color: #fff !important;
+    text-decoration: none;
+}
+.calComp{
+    height: inherit;
+}
+.attendance__bottomSection{
+    /* background-color: yellow; */
+    height: 275px;
+    width: 100%;
+}
+.attendance__calender{
+    /* background-color: whitesmoke; */
+    height: 300px;
+    margin-left: 50px;
+    margin-top: 70px;
+    width: 30%;
+}
+.attendance__topSection__monthlyBtn{
+    background-color: #834bff;
+    border: none;
+    border-radius: 2px;
+    color: #fff !important;
+    font-size: 16px;
+    height: 35px;
+    position: absolute;
+    top: 30px;
+    left: 53.2%;
+    width: 200px;
+}
+.attendance__chart{
+    /* background-color:  rgb(140, 109, 124); */
+    height: inherit;
+    margin-left: 20px;
+    margin-top: 100px;
+    width: 70%;
+}
+.attendance__chart>h3{
+    margin-left: 20px;
+}
+.attendance__back{
+    background-color: #42a5f5;
+    border: none;
+    border-radius: 2px;
+    cursor: pointer;
+    height: 35px;
+    width: 100px;
+    position: absolute;
+    top: 27px;
+    left: 90px;
+}
+.attendance__back>a{
+    color: #fff !important;
+    font-size: 18px;
+    text-decoration: none;
+}
+.attendance__bottomSection__displayData{
+   
+    /* background-color: hotpink; */
+    min-height:min-content;
+    position: relative;
+    top: 90px;
+    left: 90px;
+    width: 90vw;
+}
+
+table{
+   border-collapse: collapse;
+   border-radius: 5px;
+   overflow: hidden;
+   position: relative;
+   top: 75px;
+   /* left: 200px; */
+   width: 90vw;
+}
+
+td{
+    background-color: #fff;
+    text-align: center;
+    padding: 15px;
+}
+th{
+    
+    background-color: #262626;
+    color: #fff !important;
+    font-size: 16px;
+    padding: 15px;
+}
+tr{
+    cursor: pointer;
+}
+tr>td:hover{
+ 
+    background-color: rgba(106, 237, 156, 0.178);
+}
+
+.attendance__bottomSection__displayData__btn{
+    background-color: #834bff;
+    border: none;
+    border-top-right-radius: 4px;
+    border-top-left-radius: 4px;
+    color: #fff !important;
+    font-size: 16px;
+    height: 35px;
+    position: absolute;
+    top: 40px;
+    left: 43%;
+    width: 200px;
+}

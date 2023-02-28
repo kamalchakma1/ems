@@ -1,9 +1,9 @@
 .card{
-    background-color: #fff;
+    background-color: #fff !important;
     box-shadow: 0 4px 4px gray;
     border-radius: 4px;
     cursor: pointer;
-    color: #000;
+    /* color: #000; */
     height: 230px;
     width: 210px;
     margin-top: 80px;
@@ -68,8 +68,8 @@
     width: 140px;
 }
 .card__userInfoOnHover>button>a{
-    color: #fff;
-    font-size: 16px;
+    color: #fff !important;
+    font-size: 16px !important;
     text-decoration: none;
 }
 
