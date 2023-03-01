@@ -29,6 +29,7 @@
 .empNav__search{
     border: none;
     border-radius: 2px;
+    color: #fff !important;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -36,8 +37,6 @@
     height: 35px;
     margin-left: 180px;
     width: 40%;
-
-
 }
 .empNav__search>input{
     background-color: #ffffff00;
@@ -141,6 +140,10 @@
     color: #fff !important;
     text-decoration: none;
 }
+.attendanceBtn:hover{
+    background-color: rgb(61, 61, 242);
+   
+}
 .addEmp:hover{
     background-color: rgb(61, 61, 242);
    
@@ -176,4 +179,83 @@
 }
 ::-webkit-scrollbar-thumb:hover{
     background-color: rgb(225, 36, 130);
+}
+
+/* === Add Employment ===  */
+.addUserForm{
+    background-color: rgba(0, 0, 0, 0.391);
+    height: 200vh;
+    position: absolute;
+    top: 0px;
+    width: 100vw;
+    z-index: 1;
+}
+.addUserForm__form{
+    background-color: #fff;
+    border-radius: 2px;
+    height: 520px;
+    margin-left: 38vw;
+    margin-top: 60px;
+    width: 380px;
+}
+.addUserForm__form>h3{
+    color: #000000ca !important;
+    position: relative;
+    top: 15px;
+    left: 135px;
+    
+}
+.addUserForm__form>form{
+    /* background-color: #ab049a; */
+    align-items: flex-start;
+    display: flex;
+    justify-content: flex-start;
+    justify-content: space-between;
+    flex-direction: column;
+    position: relative;
+    margin-top: 30px;
+    margin-left: 30px;
+    height: 300px;
+}
+.addUserForm__form>form>label{
+    font-size: 18px;
+    margin-bottom: 10px;
+    margin-top: 15px;
+}
+.addUserForm__form>form>input{
+    border: none;
+    border-bottom: 1px solid gray;
+    font-size: 16px;
+    height: 30px;
+    width: 320px;
+}
+.addUserForm__form>form>input:focus{
+    outline: none;
+}
+.formBtn{
+    border: none;
+    border-radius: 4px;
+    background-color: #42a5f5;
+    color: #fff !important;
+    cursor: pointer;
+    font-size: 17px;
+    width: 100px;
+    height: 40px;
+    position: absolute;
+    bottom: -120px;
+    left: 100px;
+
+}
+.formBtn:hover{
+    background-color: #006cc4;
+}
+.formBtn__cancel{
+
+    cursor: pointer;
+    position: relative;
+    top: 70px;
+    left: 125px;
+}
+.formBtn__cancel:hover{
+    color: red;
 }
