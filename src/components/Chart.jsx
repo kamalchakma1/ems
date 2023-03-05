@@ -9,7 +9,7 @@ import {
   Legend,
 } from 'chart.js';
 
-const labels=["February"];
+const labels=["Employee Report"];
 
 ChartJS.register(
   CategoryScale,
@@ -21,26 +21,27 @@ ChartJS.register(
 );
 
 const options={}
-export const data = {
-  labels,
-  datasets: [
-    {
-      label: 'Pesent',
-      data: ["30"],
-      backgroundColor:"rgba(3, 115, 252,0.5)",
-      barThickness: 190,
-      
-    },
-    {
-      label: 'Absence',
-      data: ["15"],
-      backgroundColor:"rgba(252, 3, 231,0.5)",
-      barThickness: 190
-    },
-  ],
-};
 
-const Chart=()=>{
+
+const Chart=({present,absent})=>{
+   const data = {
+    labels,
+    datasets: [
+      {
+        label: 'Pesent',
+        data: [present],
+        backgroundColor:"#90caf9",
+        barThickness: 190,
+        
+      },
+      {
+        label: 'Absence',
+        data: [absent],
+        backgroundColor:"#ffb74d",
+        barThickness: 190
+      },
+    ],
+  };
     return(
         <>
          <Bar options={options} data={data}/>

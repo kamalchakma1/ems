@@ -14,10 +14,10 @@
 .yearlyChartMain__btn{
     background-color: #42a5f5;
     border: none;
-    border-radius: 2px;
+    border-radius: 27px;
     cursor: pointer;
     color: #fff !important;
-    font-size: 18px;
+    font-size: 16px;
     position: absolute;
     top: 20px;
     height: 35px;

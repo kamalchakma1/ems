@@ -1,5 +1,5 @@
 import style from "../styles/attendance.module.css"
-import {useState} from "react"
+import {useState, useEffect} from "react"
 import { Link } from "react-router-dom"
 import Calender from "./Calender"
 import Style from "../styles/attendance.module.css"
@@ -7,13 +7,34 @@ import Chart from "./Chart"
 import MarchChart from "./MarchChart"
 import AprilChart from "./AprilChart"
 import MayChart from "./MayChart"
+import axios from "axios"
 
 const Attendance=()=>{
    const [currentMonthYear,setcurrentMonthYear]=useState("");
    const getcurrentMonthYear=(currentMonthYearData)=>{
    setcurrentMonthYear(currentMonthYearData);
    }
+const [serverData, setServerData]=useState([]);
 
+useEffect(()=>{
+ axios.get("http://localhost:5000/data")
+ .then((response)=>{
+   setServerData(response.data)
+.catch(()=>{
+   alert("Unable to get Data");
+})
+ })
+},[])
+
+let presentCount=0;
+let absentCount=0
+serverData.map((data)=>{
+ if(data.status=="Present"){
+   presentCount++;
+ }else if(data.status=="Absent"){
+   absentCount++;
+ }
+},[])
    // Employee Attendance Status Data //
    const[currentDate, setCurrentDate]=useState("");
 
@@ -85,11 +106,15 @@ const Attendance=()=>{
    //       Date: ""
    //    }
    // ]
+
+   // console.log("CurrentDate: "+ currentDate);
+  
+
     return(
       <div className={Style.main}>
-        <button className={style.attendance__back}><Link to="/employees">Back</Link></button>
+       <Link to="/employees"><button className={style.attendance__back}>Back</button></Link>
       <div className={style.attendance__topSection}>
-         <button className={style.attendance__topSection__monthlyBtn}>Monthly Status</button>
+         {/* <button className={style.attendance__topSection__monthlyBtn}>Monthly Status</button> */}
          {/* Calender */}
          <div className={style.attendance__calender} >
 
@@ -99,10 +124,10 @@ const Attendance=()=>{
          <div className={style.attendance__chart}>
 
             {
-            currentMonthYear=="1/2023"?<Chart/>: null
+            currentMonthYear=="1/2023"?<Chart present={presentCount} absent={absentCount}/>: null
             }
             {
-               currentMonthYear=="2/2023"?<MarchChart/>:null
+               currentMonthYear=="2/2023"?<MarchChart present={presentCount} absent={absentCount}/>:null
             }
             {
                currentMonthYear=="3/2023"?<AprilChart/>:null
@@ -110,73 +135,43 @@ const Attendance=()=>{
             {
                currentMonthYear=="4/2023"?<MayChart/>:null
             }
-            <button className={style.seeYearlyBtn}><Link to="/yearly">Yearly Status</Link></button>
+            <Link to="/yearly"><button className={style.seeYearlyBtn}>Yearly Status</button></Link>
          </div>
       </div>
       <div className={style.attendance__bottomSection}>
         <div className={style.attendance__bottomSection__displayData}>
-         <button className={style.attendance__bottomSection__displayData__btn}>Daily Status</button>
+         {/* <button className={style.attendance__bottomSection__displayData__btn}>Daily Status</button> */}
           <table>
             <thead>
              <tr>
                <th>Sl.No</th>
-               <th>Employee Number</th>
+               {/* <th>Employee Number</th> */}
                <th>Employee Name</th>
                <th>Attendance Status</th>
-               <th>Date</th>
+               {/* <th>Date</th> */}
             </tr>
             </thead>
            
-            {
-              (currentDate=="1/1/2023")? februaryStatus.map((ele,key)=>{
-                  return(
-                     <>
-                     <tbody  key={ele.Id}>
-                        <tr>
-                         <td>{ele.Id}</td>
-                         <td>{ele.EmployeeNumber}</td> 
-                         <td>{ele.Name}</td>
-                         <td>{ele.Status}</td>
-                         <td>{ele.Date}</td>
-                      </tr>
-                     </tbody>
-                      </>
-                  )
-               }): null
-            }
+            
 
             {
-               (currentDate=="1/2/2023")? marchStatus.map((ele,key)=>{
+               (currentDate==currentDate)? serverData.map((ele,key)=>{
+               
                   return(
                       <>
-                      <tbody key={ele.Id}>
+                      <tbody key={ele.id}>
                         <tr >
-                         <td>{ele.Id}</td>
-                         <td>{ele.EmployeeNumber}</td> 
-                         <td>{ele.Name}</td>
-                         <td>{ele.Status}</td>
-                         <td>{ele.Date}</td>
+                         <td>{ele.id}</td>
+                         {/* <td>{ele.name}</td>  */}
+                         <td>{ele.name}</td>
+                         <td>{ele.status}</td>
+                         {/* <td>{ele.date}</td> */}
                       </tr>
                      </tbody>
                       </>
                   )
                }): null
             }
-            {/* {
-               (currentDate==currentDate)?currentStatus.map((ele)=>{
-                   return(
-                      <>
-                      <tr key={ele.Id}>
-                         <td>{ele.Id}</td>
-                         <td>{ele.EmployeeNumber}</td> 
-                         <td>{ele.Name}</td>
-                         <td>{ele.Status}</td>
-                         <td>{currentDate}</td>
-                      </tr>
-                      </>
-                  )
-               }):null
-            } */}
             
             
           </table>

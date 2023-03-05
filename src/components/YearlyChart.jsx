@@ -45,7 +45,7 @@ const YearlyChart=()=>{
         <div className={style.yearlymain}>
        
         <div className={style.yearlyChartMain}>
-            <button className={style.yearlyChartMain__btn}><Link to="/attendance">Back</Link></button>               
+            <Link to="/attendance"><button className={style.yearlyChartMain__btn}>Back</button> </Link>              
            <Bar options={options} data={data}/>
         </div>
         </div>

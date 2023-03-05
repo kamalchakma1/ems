@@ -16,31 +16,32 @@ ChartJS.register(
   Tooltip,
   Legend
 );
-const labels=["May"];
+const labels=["Employee Reports"];
 
-export const data={
-    labels,
-    datasets:[
-        {
-            label:"Present",
-            data:["40"],
-            backgroundColor:"rgba(3, 115, 252,0.5)",
-            barThickness: 190,
-        },
-        {
-            label:"Absence",
-            data:["27"],
-            backgroundColor:"rgba(252, 3, 231,0.5)",
-            barThickness: 190,
-           
-        },
-       
-    ],
-};
-
+ 
 const options={};
 
-const MayChart=()=>{
+const MayChart=({present,absent})=>{
+    const data={
+        labels,
+        datasets:[
+            {
+                label:"Present",
+                data:[present],
+                backgroundColor:"rgba(3, 115, 252,0.5)",
+                barThickness: 190,
+            },
+            {
+                label:"absent",
+                data:[absent],
+                backgroundColor:"rgba(252, 3, 231,0.5)",
+                barThickness: 190,
+               
+            },
+           
+        ],
+    };
+    
     return(
         <>
         <Bar options={options} data={data}/>

@@ -17,26 +17,27 @@ ChartJS.register(
   Tooltip,
   Legend
 );
-const labels=["March"];
-export const data={
+const labels=["Employee Report"];
+
+const options={}
+const MarchChart=({present,absent})=>{
+  const data={
     labels,
     datasets:[
        {
         label:"Present",
-        data:["8"],
+        data:[present],
         backgroundColor:"rgba(3, 115, 252,0.5)",
         barThickness: 190
        },
        {
         label:"Absence",
-        data:["10"],
+        data:[absent],
         backgroundColor:"rgba(252, 3, 231,0.5)",
         barThickness: 190
        },
     ],
 };
-const options={}
-const MarchChart=()=>{
     return(
         <>
         <Bar options={options} data={data}/>

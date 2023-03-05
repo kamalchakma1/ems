@@ -1,6 +1,13 @@
 import style from "../styles/userCard.module.css"
 import img2 from "../images/user.png"
-const UserCard=()=>{
+import axios from "axios"
+const UserCard=({name,role,status,date,id})=>{
+
+    const empDelete=(id)=>{
+
+         axios.delete(`http://localhost:5000/data/${id}`)
+        //  window.location.reload();
+    }
     return(
         <>
         <div className={style.card}>
@@ -9,15 +16,15 @@ const UserCard=()=>{
                 <img src={img2} alt="user one"/>
             </div>
 
-            <h3>James Bond</h3>
+            <h3>{name}</h3>
             <div className={style.card__userInfo}>
-                <p>Role: Software Developer</p>
-                <p>Manager: Babesh</p>
-                <p>Dept. : Engineering</p>
+                <p>Role: {role} </p>
+                <p>Status: {status} </p>
+                <p>Date. : {date}</p>
                 <div className={style.card__userInfoOnHover}>
                     <button className={style.card__attendanceBtn}><a href="#">Details</a></button>
                     <button className={style.card__editBtn}><a href="#">Edit</a></button>
-                    <button className={style.card__deleteBtn}><a href="#">Delete</a></button>
+                    <button className={style.card__deleteBtn} onClick={()=>{empDelete(id)}}><a href="#">Delete</a></button>
                 </div>
             </div>
         </div>

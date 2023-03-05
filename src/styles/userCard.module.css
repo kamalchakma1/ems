@@ -1,6 +1,6 @@
 .card{
     background-color: #fff !important;
-    box-shadow: 0 4px 4px gray;
+    box-shadow: 0 2px 4px gray;
     border-radius: 4px;
     cursor: pointer;
     /* color: #000; */
@@ -49,7 +49,7 @@
     align-items: center;
     justify-content: center;
     justify-content: space-evenly;
-    background-color: rgba(220, 220, 220, 0.959);
+    background-color: #fff;
     height: 141px;
     position: relative;
     top: -90px;

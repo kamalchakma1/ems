@@ -15,7 +15,7 @@ const Login=()=>{
             <form>
                 <input type="text" placeholder="   Email or Phone Number"/>
                 <input type="password" placeholder="   Password"/>
-                <button className={style.signInBtn}><Link to="/employees">Sign In</Link></button>
+                <Link to="/employees"><button className={style.signInBtn}>Sign In</button></Link>
                 <p>Don't have account? <span className={style.createAccountTitle}><a href="#">Create One</a></span></p>
             </form>
            </div>

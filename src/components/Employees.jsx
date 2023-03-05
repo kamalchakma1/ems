@@ -4,7 +4,11 @@ import PersonIcon from '@mui/icons-material/Person';
 import UserCard from "./UserCard";
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
+import axios from "axios"
 const Employees=()=>{
+
+  const navigate= useNavigate();
 
     const[isOn, setIsOn] = useState(false);
     const[isAddEmployeeOpen, setIsAddEmployeeOpen] = useState(false);
@@ -18,27 +22,71 @@ const Employees=()=>{
     }
     const closeAddEmpForm=()=>{
       isAddEmployeeOpen ? setIsAddEmployeeOpen(false): setIsAddEmployeeOpen(false)
-    }
+    };
+
+    // Data from server
+     const[serverData, setServerData]=useState([])
 
     // Add Emp Control form
-    const [empName, setEmpName] = useState("");
-    // adding data once submit
 
-    const [empDatas, setEmpDatas] = useState([]);
+    const [name, setName]=useState("");
+    const [role, setRole]=useState("");
+    const [status, setStatus]=useState("");
+    const [date, setDate] =useState("");
+    
+    // const [allData, setAllData]=useState();
 
-    const sendData=(e)=>{
-      e.preventDefault();
-      if(empName){
-      setEmpDatas(empName);
-      setEmpName("");
-      console.log(empDatas);    
-      }
-      
-    }
- localStorage.setItem("Data","TestData")
-    useEffect(()=>{
-     localStorage.setItem("Name",empDatas)
-    },[empDatas])
+// counting number of absent and present
+// let presentCount=0;
+// let absentCount=0;
+// serverData.map((data)=>{
+//   if(data.status==="Present"){
+//     presentCount++;
+//   }else if(data.status==="Absent"){
+//     absentCount++;
+//   }
+// })
+// console.log(presentCount);
+// console.log(absentCount);
+
+const dataSend=()=>{
+  if(name && role && status && date){
+  let payload={name,role,status,date};
+ 
+  axios.post("http://localhost:5000/data",payload)
+  .then(()=>{
+    alert("Emplyee is Added")
+  })
+  .catch(()=>{
+    alert("Unable to add Employee");
+  })
+  // Making all states Empty
+  setName("");
+  setRole("");
+  setStatus("");
+  setDate("");
+  navigate("/employees")
+  window.location.reload();
+  isAddEmployeeOpen ? setIsAddEmployeeOpen(false): setIsAddEmployeeOpen(false)
+}else{
+  alert("Please fill all data")
+}
+}
+
+// Getting Data from Server
+useEffect(()=>{
+  axios.get("http://localhost:5000/data")
+  .then((response)=>{
+    setServerData(response.data);
+  })
+  .catch(()=>{
+    alert("Unable to get data from Server")
+  })
+  
+
+},[serverData])
+
+// console.log("Data")
     return(
       <>
       <div className={style.empNav}>
@@ -66,26 +114,19 @@ const Employees=()=>{
             <h3><a href="#">Logout</a></h3> */}
         </div>
       </div>
-      <button className={style.addEmp} onClick={showEmpForm}><a href="#">Add Employee</a></button>
-      <button className={style.attendanceBtn}><Link to="/attendance">Total Attendance</Link></button>
+      <a href="#"><button className={style.addEmp} onClick={showEmpForm}>Add Employee</button></a>
+      <Link to="/attendance"><button className={style.attendanceBtn}>Total Attendance</button></Link>
       <div className={style.empContainer}>
-        <UserCard/>
-        <UserCard/>
-        <UserCard/>
-        <UserCard/>
-        <UserCard/>
-
-        <UserCard/>
-        <UserCard/>
-        <UserCard/>
-        <UserCard/>
-        <UserCard/>
-
-        <UserCard/>
-        <UserCard/>
-        <UserCard/>
-        <UserCard/>
-        <UserCard/>
+      
+      {
+        serverData.map((data)=>{
+                
+         return(
+              <UserCard name={data.name} role={data.role} status={data.status} date={data.date} id={data.id}/>                 
+         )
+        })
+      }
+        
         
       </div>
       {
@@ -94,16 +135,18 @@ const Employees=()=>{
             <h3>Add Employee</h3>
             <form>
               <label>Name</label>
-              <input type="text" value={empName}  onChange={(e)=>{setEmpName(e.target.value)}}placeholder="Enter  Name"/>
-              <label>Email</label>
-              <input type="email" placeholder="Enter Email"/>
+              <input type="text" value={name} onChange={(e)=>{setName(e.target.value)}}placeholder="Enter  Name"/>
               <label>Role</label>
-              <input type="text" placeholder="Enter Role"/>
-              <label>Manager</label>
-              <input type="text" placeholder="Enter Manager"/>
-              <label>Department</label>
-              <input type="text" placeholder="Enter Department"/>
-              <button className={style.formBtn} onClick={sendData}>Save</button>
+              <input type="text" value={role} onChange={(e)=>{setRole(e.target.value)}} placeholder="Enter Role"/>
+              <label>Status</label>
+              <select value={status} onChange={(e)=>{setStatus(e.target.value)}}>
+                <option>Select</option>
+                <option>Present</option>
+                <option>Absent</option>
+              </select>
+              <label>Date</label>
+              <input type="date" value={date} onChange={(e)=>{setDate(e.target.value)}} placeholder="Enter Department"/>
+              <button className={style.formBtn} onClick={dataSend}>Save</button>
               <p className={style.formBtn__cancel} onClick={closeAddEmpForm}>Cancel</p>
             </form>
           </div> 
