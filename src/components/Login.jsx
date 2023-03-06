@@ -1,11 +1,39 @@
 import style from "../styles/login.module.css"
-// import Employees from "./Employees"
 import img1 from "../images/image1.png"
 import { Link } from "react-router-dom"
-// import { BrowserRouter, Routes, Route, Link } from "react-router-dom"
-
+import { useEffect, useState} from "react"
+import { useNavigate } from "react-router-dom"
+import axios from "axios"
 
 const Login=()=>{
+
+     const navigate= useNavigate();
+    const[enteredEmail, setEnteredEmail] = useState("");
+    const[enteredPassword, setEnteredPassword] = useState("");
+    const[adminData, setAdminData] = useState([]);
+    const[isMatched, setIsMatched] = useState(false);
+
+
+    // Data from server
+    
+
+    useEffect(()=>{
+        axios.get("http://localhost:5000/admin")
+        .then((response)=>{
+            setAdminData(response.data);
+        })
+        .catch(()=>{
+            alert("Unable to get data from server");
+        })
+    },[])
+    
+    // sign in function
+    const signInBtnFun=(e)=>{
+        e.preventDefault();
+
+        navigate("/employees");       
+
+    }
     return(
         <>
        
@@ -13,10 +41,10 @@ const Login=()=>{
            <div className={style.login__Form}>
             <h3>Sign In</h3>
             <form>
-                <input type="text" placeholder="   Email or Phone Number"/>
-                <input type="password" placeholder="   Password"/>
-                <Link to="/employees"><button className={style.signInBtn}>Sign In</button></Link>
-                <p>Don't have account? <span className={style.createAccountTitle}><a href="#">Create One</a></span></p>
+                <input type="text" value={enteredEmail} onChange={(e)=>{setEnteredEmail(e.target.value)}} placeholder="   Email "/>
+                <input type="password" value={enteredPassword} onChange={(e)=>{setEnteredPassword(e.target.value)}}placeholder="   Password"/>
+                <button className={style.signInBtn} onClick={signInBtnFun}>Sign In</button>
+                <p>Don't have an account? <span className={style.createAccountTitle}><Link to="/register">Register</Link></span></p>
             </form>
            </div>
            <div className={style.login__Image}>

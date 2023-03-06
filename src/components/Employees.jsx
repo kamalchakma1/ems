@@ -55,7 +55,7 @@ const dataSend=()=>{
  
   axios.post("http://localhost:5000/data",payload)
   .then(()=>{
-    alert("Emplyee is Added")
+    // alert("Emplyee is Added")
   })
   .catch(()=>{
     alert("Unable to add Employee");
@@ -66,10 +66,10 @@ const dataSend=()=>{
   setStatus("");
   setDate("");
   navigate("/employees")
-  window.location.reload();
+  // window.location.reload();
   isAddEmployeeOpen ? setIsAddEmployeeOpen(false): setIsAddEmployeeOpen(false)
 }else{
-  alert("Please fill all data")
+  alert("Please fill all data");
 }
 }
 

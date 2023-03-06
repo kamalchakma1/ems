@@ -21,17 +21,53 @@ export default function Calender({ getcurrentMonthYear,getCurrentDate}) {
   
   const [workData, setWorkData] = useState("");
 
-  const empPresent={
-    emp1: "Kamal",
-    emp2: "Kamio"
+  // const empPresent={
+  //   emp1: "Kamal",
+  //   emp2: "Kamio"
+  // }
+
+   // Selected Year
+   let selectedYear=value.get("year");
+
+   // Selected Month
+   let selectedMonth=value.get("month");
+   if(selectedMonth==0){
+    selectedMonth=1;
+  }else if(selectedMonth == 1){
+    selectedMonth=2
+  }else if(selectedMonth == 2){
+    selectedMonth=3
+  }else if(selectedMonth == 3){
+    selectedMonth=4
+  }else if(selectedMonth == 4){
+    selectedMonth=5
+  }else if(selectedMonth == 5){
+    selectedMonth=6
   }
-  const workDate=value.get("date").toString()+"/"+value.get("month").toString()+"/"+value.get("year").toString();
+ // Adding Zero if month is single digits 
+
+ if(selectedMonth<=9){
+  selectedMonth='0'+selectedMonth;
+ }
+
+ // Date
+ let selectedDate=value.get("date")
+
+ // Adding Zero if date is single digit
+ if(selectedDate <=9 ){
+  selectedDate='0'+selectedDate;
+ }
+
+  // working days
+  const workDate=selectedYear+"-"+selectedMonth+"-"+selectedDate
+
+   
   const currentData=value.get("month")+"/"+value.get("year");
   getcurrentMonthYear(currentData);
    
  useEffect(()=>{
  getCurrentDate(workDate)
- 
+ console.log("Working Date: "+workDate)
  },[value])
 
 
@@ -51,8 +87,6 @@ export default function Calender({ getcurrentMonthYear,getCurrentDate}) {
       />
     </LocalizationProvider>
     <p>{workData}</p>
-    {/* <p>{cData}</p> */}
-
     </>
   );
 }

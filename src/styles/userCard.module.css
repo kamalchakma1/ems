@@ -74,23 +74,23 @@
 }
 
 .card__editBtn{
-    background-color: #3AF929;
+    background-color: #3af929bc;
 }
 .card__editBtn:hover{
-    background-color: #40da32;
+    background-color: #15fd00;
 
 }
 .card__attendanceBtn{
-    background-color: #1DB5F6;
+    background-color: #1db5f6a7;
 }
 .card__attendanceBtn:hover{
-    background-color: #309fcf;
+    background-color: #05b4ff;
 
 }
 .card__deleteBtn{
-    background-color: red;
+    background-color: rgba(255, 0, 0, 0.676);
 }
 .card__deleteBtn:hover{
-    background-color: rgb(223, 44, 44);
+    background-color: rgb(255, 0, 0);
 
 }

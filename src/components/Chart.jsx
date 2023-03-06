@@ -9,7 +9,7 @@ import {
   Legend,
 } from 'chart.js';
 
-const labels=["Employee Report"];
+const labels=["Daily Report"];
 
 ChartJS.register(
   CategoryScale,

@@ -1,31 +1,68 @@
 {
   "data": [
     {
-      "name": "Sujen",
-      "role": "SDE",
-      "status": "Absent",
-      "date": "2023-03-03",
+      "name": "Kamal",
+      "role": "SD",
+      "status": "Present",
+      "date": "2023-03-06",
       "id": 1
     },
     {
-      "name": "Lakhnai",
-      "role": "IAS",
+      "name": "Sharath",
+      "role": "SD",
       "status": "Present",
-      "date": "2023-03-12",
+      "date": "2023-03-06",
       "id": 2
     },
     {
-      "name": "Lalie",
-      "role": "EIjnsa",
+      "name": "Amritha",
+      "role": "SD",
       "status": "Present",
-      "date": "2023-03-12",
+      "date": "2023-03-06",
       "id": 3
     },
     {
-      "name": "lokkjn",
-      "role": "hhjj",
-      "status": "Present",
-      "date": "2023-03-09",
+      "name": "Romel",
+      "role": "Graphic Designer",
+      "status": "Absent",
+      "date": "2023-03-06",
+      "id": 4
+    },
+    {
+      "name": "Sujen",
+      "role": "HR",
+      "status": "Absent",
+      "date": "2023-03-07",
+      "id": 5
+    }
+  ],
+  "admin": [
+    {
+      "id": 1,
+      "name": "admin",
+      "email": "admin@email.com",
+      "password": "admin@123",
+      "confirm password": "admin@123"
+    },
+    {
+      "name": "Kamal",
+      "email": "kamal@email.com",
+      "password": "1234k",
+      "confirmPassword": "1234k",
+      "id": 2
+    },
+    {
+      "name": "Kanti",
+      "email": "iosi@email.com",
+      "password": "iwimsms",
+      "confirmPassword": "msmsmsm",
+      "id": 3
+    },
+    {
+      "name": "ani",
+      "email": "ani@email.com",
+      "password": "ani123",
+      "confirmPassword": "ani123",
       "id": 4
     }
   ]

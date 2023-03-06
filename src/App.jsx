@@ -5,6 +5,7 @@ import "./global.css"
 import Employees from "./components/Employees"
 import Home from "./components/Home"
 import YearlyChart from "./components/YearlyChart"
+import Register from "./components/Register"
 import { BrowserRouter, Routes, Route } from "react-router-dom"
 const App=()=>{
     return(
@@ -18,6 +19,7 @@ const App=()=>{
              <Route element={<Login/>} path="/"></Route>
              <Route element={<Attendance/>} path="/attendance"></Route>
              <Route element={<YearlyChart/>} path="/yearly"></Route>
+             <Route element={<Register/>} path="/register"></Route>
          </Routes>
          </BrowserRouter>
         </>
