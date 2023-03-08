@@ -11,7 +11,7 @@ const Login=()=>{
     const[enteredEmail, setEnteredEmail] = useState("");
     const[enteredPassword, setEnteredPassword] = useState("");
     const[adminData, setAdminData] = useState([]);
-    const[isMatched, setIsMatched] = useState(false);
+   
 
 
     // Data from server
@@ -28,12 +28,20 @@ const Login=()=>{
     },[])
     
     // sign in function
+
+  
     const signInBtnFun=(e)=>{
         e.preventDefault();
-
-        navigate("/employees");       
-
+    adminData.some((data)=>{
+          if(enteredEmail===data.email && enteredPassword === data.password){
+           localStorage.setItem("user",data.name);
+           localStorage.setItem("isSignIn",true);
+        }
+            return (enteredEmail===data.email && enteredPassword === data.password);
+        }) ? navigate("/employees") : alert("Enter Correct details");
+        
     }
+//    console.log(user);
     return(
         <>
        

@@ -33,6 +33,8 @@ const Employees=()=>{
     const [role, setRole]=useState("");
     const [status, setStatus]=useState("");
     const [date, setDate] =useState("");
+
+    const [file, setFile] = useState();
     
     // const [allData, setAllData]=useState();
 
@@ -86,7 +88,18 @@ useEffect(()=>{
 
 },[serverData])
 
+// user name from local storage
+const userName = localStorage.getItem("user").toUpperCase();
+
+// logout function
+
+const logoutFun=()=>{
+   navigate("/")
+   localStorage.clear();
+}
+
 // console.log("Data")
+// console.log(file);
     return(
       <>
       <div className={style.empNav}>
@@ -98,15 +111,14 @@ useEffect(()=>{
             <input type="text"/>
         </div>
         <div className={style.empNav__profile}>
-          <h3 className={style.empNav__profile__userName}>Loki Thor</h3>
+          <h3 className={style.empNav__profile__userName}>{userName?userName:null}</h3>
             <PersonIcon  className={style.profileIcon} onClick={show}/>
            
          
             {
              isOn ? <div className={style.empNav__profile__showMenu}>
                 <a href="#">Profile</a>
-                {/* <a href="#">Logout</a> */}
-                <Link to="/">Logout</Link>
+               <a href="#" onClick={logoutFun}>Logout</a>
                </div> : null 
             }
             
@@ -146,6 +158,7 @@ useEffect(()=>{
               </select>
               <label>Date</label>
               <input type="date" value={date} onChange={(e)=>{setDate(e.target.value)}} placeholder="Enter Department"/>
+           
               <button className={style.formBtn} onClick={dataSend}>Save</button>
               <p className={style.formBtn__cancel} onClick={closeAddEmpForm}>Cancel</p>
             </form>

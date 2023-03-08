@@ -67,7 +67,7 @@ export default function Calender({ getcurrentMonthYear,getCurrentDate}) {
    
  useEffect(()=>{
  getCurrentDate(workDate)
- console.log("Working Date: "+workDate)
+//  console.log("Working Date: "+workDate)
  },[value])
 
 

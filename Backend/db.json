@@ -1,39 +1,53 @@
 {
   "data": [
     {
-      "name": "Kamal",
-      "role": "SD",
-      "status": "Present",
-      "date": "2023-03-06",
-      "id": 1
-    },
-    {
-      "name": "Sharath",
-      "role": "SD",
-      "status": "Present",
-      "date": "2023-03-06",
-      "id": 2
-    },
-    {
-      "name": "Amritha",
-      "role": "SD",
-      "status": "Present",
-      "date": "2023-03-06",
-      "id": 3
-    },
-    {
-      "name": "Romel",
-      "role": "Graphic Designer",
-      "status": "Absent",
-      "date": "2023-03-06",
-      "id": 4
-    },
-    {
       "name": "Sujen",
       "role": "HR",
       "status": "Absent",
       "date": "2023-03-07",
       "id": 5
+    },
+    {
+      "name": "Kanis",
+      "role": "Devops",
+      "status": "Present",
+      "date": "2023-03-07",
+      "id": 6
+    },
+    {
+      "name": "Nikesh",
+      "role": "HR",
+      "status": "Present",
+      "date": "2023-03-07",
+      "id": 7
+    },
+    {
+      "name": "Kelav",
+      "role": "SDE",
+      "status": "Present",
+      "date": "2023-03-08",
+      "id": 8
+    },
+    {
+      "name": "Jeta",
+      "role": "HR",
+      "status": "Present",
+      "date": "2023-03-08",
+      "id": 9
+    },
+    {
+      "name": "Jashi",
+      "role": "Graphic Designer",
+      "status": "Absent",
+      "date": "2023-03-08",
+      "id": 10
+    },
+    {
+      "name": "Ravi",
+      "role": "Manager",
+      "status": "Present",
+      "date": "2023-03-07",
+      "id": 11
     }
   ],
   "admin": [
@@ -64,6 +78,13 @@
       "password": "ani123",
       "confirmPassword": "ani123",
       "id": 4
+    },
+    {
+      "name": "Maina",
+      "email": "maina@email.com",
+      "password": "maina123",
+      "confirmPassword": "maina123",
+      "id": 5
     }
   ]
 }
